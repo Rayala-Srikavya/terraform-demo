@@ -22,8 +22,6 @@ provider "snowflake" {
   password   = var.password
   role       = var.role
   warehouse  = var.warehouse
-  database   = var.database
-  schema     = var.schema
 }
 
 # Read JSON file dynamically instead of YAML
@@ -33,8 +31,8 @@ locals {
 
 # Creating tables dynamically from JSON configuration
 resource "snowflake_table" "tables" {
-  database = local.table_config.snowflake.database
-  schema   = local.table_config.snowflake.schema
+  database = var.database
+  schema   = var.schema
   name     = local.table_config.snowflake.tables[0].name
 
   dynamic "column" {
