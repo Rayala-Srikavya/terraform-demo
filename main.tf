@@ -1,7 +1,7 @@
 terraform {
   required_providers {
     snowflake = {
-      source  = "Snowflake-Labs/snowflake"
+      source  = "snowflakedb/snowflake"
       version = "~> 0.50"
     }
     yaml = {
@@ -17,9 +17,9 @@ provider "snowflake" {
   password = "Srpu@7330691779"   
 }
 
-# Loading YAML file
-data "yaml_file" "tables" {
-  input = file("${path.module}/snowflake-table.yaml")
+# Read YAML file as raw content
+variable "yaml_content" {
+  default = file("${path.module}/snowflake-table.yaml")
 }
 
 # Creating tables dynamically from YAML configuration
