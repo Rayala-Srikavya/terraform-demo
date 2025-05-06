@@ -1,0 +1,17 @@
+version: 1
+
+snowflake:
+  database: DEMO_DB
+  schema: PUBLIC
+  tables:
+    - name: users
+      columns:
+        - name: id
+          type: INTEGER
+          primary_key: true
+        - name: name
+          type: STRING
+        - name: email
+          type: STRING
+        - name: created_at
+          type: TIMESTAMP
