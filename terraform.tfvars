@@ -1,4 +1,5 @@
-account    = "UU37435-RCNZCWF"
+account_name     = "RCNZCWF"
+organization_name = "UU37435"
 user       = "Srikavya"
 password   = "Srpu@7330691779"
 role       = "ACCOUNTADMIN"
