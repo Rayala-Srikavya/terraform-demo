@@ -4,12 +4,12 @@ snowflake:
   database: DEMO_DB
   schema: PUBLIC
   tables:
-    - name: users
+    - name: customers
       columns:
-        - name: id
+        - name: customer_id
           type: INTEGER
           primary_key: true
-        - name: name
+        - name: customer_name
           type: STRING
         - name: email
           type: STRING
