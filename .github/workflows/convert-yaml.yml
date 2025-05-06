@@ -1,0 +1,27 @@
+name: Convert YAML to JSON for Terraform Cloud
+
+on:
+  push:
+    paths:
+      - snowflake-table.yaml
+
+jobs:
+  convert:
+    runs-on: windows-latest
+    steps:
+      - name: Checkout Repo
+        uses: actions/checkout@v3
+
+      - name: Install yq
+        run: choco install yq
+
+      - name: Convert YAML to JSON
+        run: yq eval -j snowflake-table.yaml > snowflake-table.json
+
+      - name: Commit JSON Output
+        run: |
+          git config --global user.name "GitHub Actions"
+          git config --global user.email "actions@github.com"
+          git add snowflake-table.json
+          git commit -m "Auto-converted YAML to JSON"
+          git push
