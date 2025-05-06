@@ -15,4 +15,4 @@ snowflake:
         - name: email
           type: STRING
         - name: created_at
-          type: TIMESTAMP
+          type: TIMESTAMP(6)
