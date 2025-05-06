@@ -19,9 +19,11 @@ jobs:
         run: yq eval -j snowflake-table.yaml > snowflake-table.json
 
       - name: Commit JSON Output
+        env:
+          GITHUB_TOKEN: ${{ secrets.GH_PAT }}
         run: |
           git config --global user.name "GitHub Actions"
           git config --global user.email "actions@github.com"
           git add snowflake-table.json
           git commit -m "Auto-converted YAML to JSON"
-          git push https://x-access-token:${{ secrets.GH_PAT }}@github.com/Rayala-Srikavya/terraform-demo.git main
+          git push https://x-access-token:${{ env.GITHUB_TOKEN }}@github.com/Rayala-Srikavya/terraform-demo.git main
