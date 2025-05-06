@@ -17,7 +17,13 @@ variable "database" {}
 variable "schema" {}
 
 provider "snowflake" {
-  account    = var.account
+  account_name     = var.account_name
+  organization_name = var.organization_name
+  user            = var.user
+  password        = var.password
+  role            = var.role
+  warehouse       = var.warehouse
+}
   user       = var.user
   password   = var.password
   role       = var.role
