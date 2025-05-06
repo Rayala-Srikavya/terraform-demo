@@ -8,9 +8,10 @@ terraform {
 }
 
 provider "snowflake" {
-  account  = "RCNZCWF-UU37435"   
-  username = "Srikavya"           
-  password = "Srpu@7330691779"   
+  account_name     = "RCNZCWF"
+  organization_name = "UU37435"
+  user            = "Srikavya"
+  password        = "Srpu@7330691779"
 }
 
 # Read JSON file dynamically instead of YAML
