@@ -10,6 +10,8 @@ terraform {
 # Define variables for dynamic input
 variable "account_name" {}
 variable "organization_name" {}
+variable "database" {}
+variable "schema" {}
 
 provider "snowflake" {
   account_name     = var.account_name
