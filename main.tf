@@ -9,23 +9,23 @@ terraform {
 
 provider "snowflake" {
   account  = "RCNZCWF-UU37435"   
-  username = "Srikavya"          
+  username = "Srikavya"           
   password = "Srpu@7330691779"   
 }
 
-# Read YAML file as raw content
+# Read JSON file dynamically instead of YAML
 locals {
-  yaml_content = file("${path.module}/snowflake-table.yaml")
+  table_config = jsondecode(file("${path.module}/snowflake-table.json"))
 }
 
-# Creating tables dynamically from YAML configuration
+# Creating tables dynamically from JSON configuration
 resource "snowflake_table" "tables" {
-  database = data.yaml_file.tables.snowflake.database
-  schema   = data.yaml_file.tables.snowflake.schema
-  name     = data.yaml_file.tables.snowflake.tables[0].name
+  database = local.table_config.snowflake.database
+  schema   = local.table_config.snowflake.schema
+  name     = local.table_config.snowflake.tables[0].name
 
   dynamic "column" {
-    for_each = data.yaml_file.tables.snowflake.tables[0].columns
+    for_each = local.table_config.snowflake.tables[0].columns
     content {
       name = column.value.name
       type = column.value.type
