@@ -8,29 +8,15 @@ terraform {
 }
 
 # Define variables for dynamic input
-variable "account" {}
-variable "user" {}
-variable "password" {}
-variable "role" {}
-variable "warehouse" {}
-variable "database" {}
-variable "schema" {}
+variable "account_name" {}
+variable "organization_name" {}
 
 provider "snowflake" {
   account_name     = var.account_name
   organization_name = var.organization_name
-  user            = var.user
-  password        = var.password
-  role            = var.role
-  warehouse       = var.warehouse
-}
-  user       = var.user
-  password   = var.password
-  role       = var.role
-  warehouse  = var.warehouse
 }
 
-# Read JSON file dynamically instead of YAML
+# Read JSON file dynamically
 locals {
   table_config = jsondecode(file("${path.module}/snowflake-table.json"))
 }
