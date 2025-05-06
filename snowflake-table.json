@@ -22,7 +22,7 @@
           },
           {
             "name": "created_at",
-            "type": "TIMESTAMP"
+            "type": "TIMESTAMP(6)"
           }
         ]
       }
