@@ -1,8 +1,4 @@
 account_name     = "UU37435"
 organization_name = "RCNZCWF"
-user       = "Srikavya"
-password   = "Srpu@7330691779"
-role       = "ACCOUNTADMIN"
-warehouse  = "COMPUTE_WH"
 database   = "DEMO_DB"
 schema     = "PUBLIC"
