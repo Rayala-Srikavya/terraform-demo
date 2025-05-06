@@ -1,0 +1,7 @@
+account    = "UU37435-RCNZCWF"
+user       = "Srikavya"
+password   = "Srpu@7330691779"
+role       = "ACCOUNTADMIN"
+warehouse  = "COMPUTE_WH"
+database   = "DEMO_DB"
+schema     = "PUBLIC"
