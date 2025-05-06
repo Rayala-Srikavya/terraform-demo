@@ -4,10 +4,6 @@ terraform {
       source  = "snowflakedb/snowflake"
       version = "~> 0.50"
     }
-    yaml = {
-      source  = "ashald/yaml"
-      version = "0.2.0"
-    }
   }
 }
 
@@ -18,8 +14,8 @@ provider "snowflake" {
 }
 
 # Read YAML file as raw content
-variable "yaml_content" {
-  default = file("${path.module}/snowflake-table.yaml")
+locals {
+  yaml_content = file("${path.module}/snowflake-table.yaml")
 }
 
 # Creating tables dynamically from YAML configuration
