@@ -10,13 +10,14 @@ terraform {
 # Define variables for dynamic input
 variable "account_name" {}
 variable "organization_name" {}
+variable "host"{}
 variable "database" {}
 variable "schema" {}
 
 provider "snowflake" {
   account_name     = var.account_name
   organization_name = var.organization_name
-  host             = env("SNOWFLAKE_HOST")
+  host             = var.host
 }
 
 # Read JSON file dynamically
