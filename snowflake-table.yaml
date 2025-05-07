@@ -1,3 +1,4 @@
+#version definition
 version: 1
 
 snowflake:
