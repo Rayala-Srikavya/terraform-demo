@@ -16,7 +16,7 @@ variable "schema" {}
 provider "snowflake" {
   account_name     = var.account_name
   organization_name = var.organization_name
-  host             = "RCNZCWF-UU37435.snowflakecomputing.com"
+  host             = env("SNOWFLAKE_HOST")
 }
 
 # Read JSON file dynamically
